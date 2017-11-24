@@ -18,6 +18,11 @@ Indexes |
 "grid_pkey" PRIMARY KEY, btree (ogc_fid) |
 "grid_wkb_geometry_geom_idx" gist (wkb_geometry) |
 
+| Command | Description |
+| --- | --- |
+| git status | List all new or modified files |
+| git diff | Show file differences that haven't been staged |
+
 
 I created it automatically using [ogr2ogr](http://www.gdal.org/ogr2ogr.html), having created my squares using the [Vector Grid](https://docs.qgis.org/2.6/en/docs/user_manual/processing_algs/qgis/vector_creation_tools/vectorgrid.html) tool in [QGIS](http://www.qgis.org/en/site/).
 
