@@ -56,7 +56,7 @@
 			//lock the requested square - in essence thing else is a callback to this
     		makeRequest(['scripts/markLocked.php?id=', id].join(''), function(d){
     		
-    			console.log(d.rows.toString() + " locked");
+    			console.log(d.rows.toString() + " locked (" + id + ")");
 
 				//make a map
 				var map = L.map('map', {maxZoom: 17});
@@ -114,7 +114,7 @@
     				makeRequest(['scripts/markEmpty.php?id=', id].join(''), function(d){
     				
     					//TODO: Verification
-    					console.log(d.rows.toString() + " marked empty");
+    					console.log(d.rows.toString() + " marked empty (" + id + ")");
     				 					
 						//reload the page to get new square
 						location.reload(); 
@@ -127,7 +127,7 @@
     				makeRequest(['scripts/markNotMapped.php?id=', id].join(''), function(d){ 
     				
 						//TODO: Verification
-						console.log(d.rows.toString() + " reset");
+						console.log(d.rows.toString() + " reset (" + id + ")");
     								
 						//reload the page to get new square
 						location.reload(); 
@@ -165,7 +165,7 @@
     				makeRequest(['scripts/markComplete.php?id=', id].join(''), function(d){
     				
 						//TODO: Verification
-						console.log(d.rows.toString() + " marked complete");
+						console.log(d.rows.toString() + " marked complete (" + id + ")");
     									
 						//reload the page to get new square
 						location.reload(); 
