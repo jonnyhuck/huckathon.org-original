@@ -7,14 +7,14 @@ To use this, you must have a [PostGIS](http://postgis.net/) database containing 
 This is the structure of my `grid` table:
 
     Column    |          Type           |                       Modifiers                        
----+---+---
+| ------------- | ------------- | ------------- |
  `ogc_fid`      | `integer`                 | `not null default nextval('grid_ogc_fid_seq'::regclass)`
  `id`           | `numeric(10,0)`           | 
  `wkb_geometry` | `geometry(Polygon,21096)` | 
  `status`       | `integer`                 | `not null default 0`
 
 Indexes |
----+
+| ------------- |
 "grid_pkey" PRIMARY KEY, btree (ogc_fid) |
 "grid_wkb_geometry_geom_idx" gist (wkb_geometry) |
 
