@@ -29,5 +29,5 @@ Finally, you will need to add a file called `connection.php` to the `/scripts` d
 
 ```php
 <?php
-	$connstr = 'pgsql:dbname=[DBNAME];host=localhost;user=[USRNAME];password=[PASSWORD]';
+$connstr = 'pgsql:dbname=[DBNAME];host=localhost;user=[USRNAME];password=[PASSWORD]';
 ```
