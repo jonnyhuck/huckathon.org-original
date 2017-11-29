@@ -37,7 +37,7 @@
 		<?php
 			require('scripts/connection.php');
 			$db = new PDO($connstr);
-			$stmt = $db->query("select ogc_fid, ST_XMin(b), ST_YMin(b), ST_XMax(b), ST_YMax(b), concat('https://www.openstreetmap.org/edit#map=18/', ST_y(a.c), '/', ST_x(a.c)) from (select ogc_fid, Box2D(ST_Transform(ST_Envelope(wkb_geometry), 4326)) as b, ST_AsText(ST_Transform(ST_Centroid(wkb_geometry), 4326)) as c from grid where status = 0 limit 1) a;");
+			$stmt = $db->query("select ogc_fid, ST_XMin(b), ST_YMin(b), ST_XMax(b), ST_YMax(b), concat('https://www.openstreetmap.org/edit#map=18/', ST_y(a.c), '/', ST_x(a.c)), distance from (select ogc_fid, Box2D(ST_Transform(ST_Envelope(wkb_geometry), 4326)) as b, ST_AsText(ST_Transform(ST_Centroid(wkb_geometry), 4326)) as c, distance from grid where status = 0 order by distance limit 1) a;");
 			while ($row = $stmt->fetch())
 			{	
 				echo "<script>\n";

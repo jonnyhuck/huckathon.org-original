@@ -20,6 +20,16 @@ Indexes |
 
 I created it automatically using [ogr2ogr](http://www.gdal.org/ogr2ogr.html), having created my squares using the [Vector Grid](https://docs.qgis.org/2.6/en/docs/user_manual/processing_algs/qgis/vector_creation_tools/vectorgrid.html) tool in [QGIS](http://www.qgis.org/en/site/).
 
+I then added a distance column to give the distance from a point in my area of interest. This means that the grid will be delivered from the interface from that point outward, rather than simply in rows from the top corner:
+
+```
+alter table grid add column distance float;
+
+update grid set distance = (select st_distance(st_setsrid(st_makepoint(st_xmin(wkb_geometry), st_ymin(wkb_geometry)), 21096), st_transform(st_setsrid(st_makepoint(32.28807259, 2.7724038), 4326), 21096)));
+
+CREATE INDEX grid_distance ON grid (distance);
+```
+
 You will also require the [PDO-pgsql](http://php.net/manual/en/ref.pdo-pgsql.connection.php) extension for [PHP](http://php.net/). This is trivially installed with:
 
 * Ubuntu: `sudo apt install php-pgsql`
