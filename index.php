@@ -26,6 +26,9 @@
 			#redBtn {
 				background-color: red;			
 			}
+			#redBtn {
+				background-color: orange;			
+			}
 		</style>
 	</head>
 	<body>
@@ -86,7 +89,7 @@
 					onAdd: function (m) {	//construct the button
 						var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
 							container.style.backgroundColor = 'white';     
-							container.innerHTML = '<button id="greenBtn" onclick="greenButton()">Start Mapping Now!</button> <button id="redBtn" onclick="redButton()">No Mapping Needed!</button>';
+							container.innerHTML = '<button id="greenBtn" onclick="greenButton()">Start Mapping Now!</button> <button id="yellowBtn" onclick="yellowButton()">Not Sure, Skip!</button> <button id="redBtn" onclick="redButton()">No Mapping Needed!</button>';
 							container.style.padding = "5px";
 							container.style.color = "black";
 			
@@ -149,6 +152,7 @@
 					
 					//set the buttons to 'done' or 'cancel'
 					document.getElementById('greenBtn').innerHTML = "I've finished mapping this square";
+					document.getElementById('yellowBtn').visible = false;
 					document.getElementById('redBtn').innerHTML = "I've given up mapping this square";
 			
 					//open the OSM ID Editor at the correct location
@@ -171,6 +175,26 @@
 						location.reload(); 
     				});
     			}
+			}
+			
+			/**
+			 * Handlers for the functionality of the yellow button
+			 */
+			function yellowButton() {
+			
+				// there is nothing to map in the square
+				if(!mapping){
+				
+					//mark the square as not mapped
+    				makeRequest(['scripts/markNotMapped.php?id=', id].join(''), function(d){ 
+    				
+						//TODO: Verification
+						console.log(d.rows.toString() + " reset (" + id + ")");
+    								
+						//reload the page to get new square
+						location.reload(); 
+    				});
+				}
 			}
 			
 			/**
