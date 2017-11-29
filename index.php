@@ -152,7 +152,7 @@
 					
 					//set the buttons to 'done' or 'cancel'
 					document.getElementById('greenBtn').innerHTML = "I've finished mapping this square";
-					document.getElementById('yellowBtn').visible = false;
+					document.getElementById('yellowBtn').style.display = "none"; 
 					document.getElementById('redBtn').innerHTML = "I've given up mapping this square";
 			
 					//open the OSM ID Editor at the correct location
