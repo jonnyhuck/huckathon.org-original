@@ -183,18 +183,18 @@
 			function yellowButton() {
 			
 				// there is nothing to map in the square
-				if(!mapping){
-				
-					//mark the square as not mapped
-    				makeRequest(['scripts/markNotMapped.php?id=', id].join(''), function(d){ 
-    				
-						//TODO: Verification
-						console.log(d.rows.toString() + " reset (" + id + ")");
+// 				if(!mapping){
+// 				
+// 					//mark the square as not mapped
+//     				makeRequest(['scripts/markNotMapped.php?id=', id].join(''), function(d){ 
+//     				
+// 						//TODO: Verification
+// 						console.log(d.rows.toString() + " reset (" + id + ")");
     								
 						//reload the page to get new square
 						location.reload(); 
-    				});
-				}
+//     				});
+// 				}
 			}
 			
 			/**
