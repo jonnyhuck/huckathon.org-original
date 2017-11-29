@@ -26,7 +26,7 @@
 			#redBtn {
 				background-color: red;			
 			}
-			#redBtn {
+			#yellowBtn {
 				background-color: orange;			
 			}
 		</style>
