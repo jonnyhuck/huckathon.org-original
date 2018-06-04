@@ -1,3 +1,7 @@
+# This repository is **DEPRACATED** in favour of the new  [huckathon.org](https://github.com/jonnyhuck/huckathon.org) repository.
+
+---
+
 # huckathon.org
 A simple, quick and dirty task manager interface for OSM Mapathons.
 
